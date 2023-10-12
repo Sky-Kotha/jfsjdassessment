@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Registration</title>
+</head>
+<body>
+    <h1>User Registration</h1>
+    <form id="userForm">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required><br>
+
+        <label for="middleName">Middle Name:</label>
+        <input type="text" id="middleName" name="middleName"><br>
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" required><br>
+
+        <button type="button" onclick="generatePassword()">Generate Password</button>
+    </form>
+    <br>
+    <div id="password"></div>
+
+    <script>
+        function generatePassword() {
+            const firstName = document.getElementById('firstName').value;
+            const middleName = document.getElementById('middleName').value;
+            const lastName = document.getElementById('lastName').value;
+
+            const randomDigits = Math.floor(100 + Math.random() * 900);
+            const password = `${firstName.slice(0, 2)}${middleName.slice(0, 2)}${lastName.slice(0, 2)}${randomDigits}`;
+
+            document.getElementById('password').textContent = `Generated Password: ${password}`;
+        }
+    </script>
+</body>
+</html>
